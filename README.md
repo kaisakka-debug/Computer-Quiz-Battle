@@ -83,7 +83,7 @@
 1.  ดาวน์โหลด **Godot Engine 4.x**
 2.  Clone repository นี้:
     ```bash
-    git clone [https://github.com/yourusername/computer-quiz-battle.git](https://github.com/yourusername/computer-quiz-battle.git)
+    https://github.com/kaisakka-debug/Computer-Quiz-Battle.git
     ```
 3.  เปิด Godot Engine และกด **Import**
 4.  เลือกไฟล์ `project.godot` ในโฟลเดอร์ที่ดาวน์โหลดมา
