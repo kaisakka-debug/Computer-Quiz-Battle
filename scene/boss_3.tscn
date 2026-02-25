@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://vni30f4kip3d"]
+
+[ext_resource type="Texture2D" uid="uid://bnrk13v2t4bkm" path="res://art/tilset/Dungeon_Character_2.png" id="1_dpwlb"]
+[ext_resource type="Script" uid="uid://b8d5k4s0fvej1" path="res://scripts/boss_3.gd" id="1_gpbb4"]
+[ext_resource type="AudioStream" uid="uid://ubwuunmx0lua" path="res://Assets/background/Wild Pokémon Battle (Day) - Pokémon Gold⧸Silver⧸Crystal Soundtrack.wav" id="3_byjv6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpbb4"]
+atlas = ExtResource("1_dpwlb")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byjv6"]
+atlas = ExtResource("1_dpwlb")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0xhl"]
+atlas = ExtResource("1_dpwlb")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqt4r"]
+atlas = ExtResource("1_dpwlb")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rabiv"]
+atlas = ExtResource("1_dpwlb")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n3kj"]
+atlas = ExtResource("1_dpwlb")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ys18m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpbb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byjv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0xhl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqt4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rabiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n3kj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vt3nm"]
+radius = 18.0
+height = 46.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt4j4"]
+size = Vector2(47, 50)
+
+[node name="boss_3" type="CharacterBody2D" unique_id=2058637592]
+script = ExtResource("1_gpbb4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1266481543]
+position = Vector2(5, 8)
+scale = Vector2(1.625, 1.9374999)
+sprite_frames = SubResource("SpriteFrames_ys18m")
+animation = &"walk"
+frame_progress = 0.047953513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2070644131]
+position = Vector2(3, 5)
+shape = SubResource("CapsuleShape2D_vt3nm")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1000737611]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1400680813]
+position = Vector2(3, 6)
+shape = SubResource("RectangleShape2D_rt4j4")
+
+[node name="AudioBeforeBattle" type="AudioStreamPlayer2D" parent="." unique_id=1291014184]
+stream = ExtResource("3_byjv6")
+volume_db = -20.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

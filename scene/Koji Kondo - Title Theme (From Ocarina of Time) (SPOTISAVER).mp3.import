@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxpqv5mrg6ax"
+path="res://.godot/imported/Koji Kondo - Title Theme (From Ocarina of Time) (SPOTISAVER).mp3-db09b4e00b3d656aab00cb64c86bdafe.mp3str"
+
+[deps]
+
+source_file="res://scene/Koji Kondo - Title Theme (From Ocarina of Time) (SPOTISAVER).mp3"
+dest_files=["res://.godot/imported/Koji Kondo - Title Theme (From Ocarina of Time) (SPOTISAVER).mp3-db09b4e00b3d656aab00cb64c86bdafe.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

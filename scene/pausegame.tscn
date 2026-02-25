@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cr5l44i7khf30"]
+
+[ext_resource type="Texture2D" uid="uid://e3vafkktn3xw" path="res://pausegame.png" id="1_3ep0n"]
+[ext_resource type="Script" uid="uid://b73aq4ph1y6sc" path="res://scripts/pausegame.gd" id="1_6uygt"]
+[ext_resource type="AudioStream" uid="uid://ccag84i6ublxc" path="res://Assets/background/soundreality-button-202966.mp3" id="3_sm3c6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm3c6"]
+bg_color = Color(0.57443464, 0.59798044, 0.67563677, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="Pausegame" type="Control" unique_id=1322641065]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6uygt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2108783686]
+position = Vector2(577, 324.75)
+scale = Vector2(1.105973, 1.5359712)
+texture = ExtResource("1_3ep0n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1435364370]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.5
+offset_top = -62.0
+offset_right = 70.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer" unique_id=1409904900]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.01519029, 0.0048448946, 0.0015921254, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_sm3c6")
+text = "Resume"
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=1462323169]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.01519029, 0.0048448946, 0.0015921254, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_sm3c6")
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioClick" type="AudioStreamPlayer2D" parent="." unique_id=1768488953]
+process_mode = 3
+stream = ExtResource("3_sm3c6")
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

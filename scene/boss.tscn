@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dq56lyqj8pvyw"]
+
+[ext_resource type="Script" uid="uid://np2h8l18eot0" path="res://scripts/boss.gd" id="1_et0im"]
+[ext_resource type="Texture2D" uid="uid://omqccfa3g00f" path="res://art/tilset/Dungeon_Character.png" id="2_285t0"]
+[ext_resource type="AudioStream" uid="uid://ubwuunmx0lua" path="res://Assets/background/Wild Pokémon Battle (Day) - Pokémon Gold⧸Silver⧸Crystal Soundtrack.wav" id="4_nuwfj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et0im"]
+atlas = ExtResource("2_285t0")
+region = Rect2(0, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_285t0"]
+atlas = ExtResource("2_285t0")
+region = Rect2(84, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl70q"]
+atlas = ExtResource("2_285t0")
+region = Rect2(98, 0, 14, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nuwfj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et0im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_285t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl70q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fl70q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nuwfj"]
+size = Vector2(72, 65)
+
+[node name="Boss" type="CharacterBody2D" unique_id=1564553084]
+script = ExtResource("1_et0im")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1307464128]
+position = Vector2(0, 0.9999995)
+scale = Vector2(1, 1.5000001)
+sprite_frames = SubResource("SpriteFrames_nuwfj")
+animation = &"idle"
+frame_progress = 0.8670051
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1265709917]
+shape = SubResource("CapsuleShape2D_fl70q")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1225748023]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=303556775]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_nuwfj")
+
+[node name="AudioBeforeBattle" type="AudioStreamPlayer2D" parent="." unique_id=2075430972]
+stream = ExtResource("4_nuwfj")
+volume_db = -20.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

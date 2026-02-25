@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://ccfxr3rwp8ti0"]
+
+[ext_resource type="Script" uid="uid://c7wbl3q50iba3" path="res://scripts/win_ui.gd" id="1_cviff"]
+[ext_resource type="Texture2D" uid="uid://dkkac5mkixdwh" path="res://Assets/background/win_ui.png" id="2_6qfok"]
+[ext_resource type="AudioStream" uid="uid://c4kmtxpr5dg2r" path="res://Assets/background/mixkit-video-game-win-2016.wav" id="3_iye8l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iye8l"]
+bg_color = Color(0.57443464, 0.59798044, 0.67563677, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="win_ui" type="Control" unique_id=1403588537]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cviff")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1995225841]
+position = Vector2(577, 325.75003)
+scale = Vector2(1.1078998, 1.5455635)
+texture = ExtResource("2_6qfok")
+
+[node name="score_label" type="Label" parent="." unique_id=677128431]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 192.0
+offset_right = 624.0
+offset_bottom = 255.0
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="Button" parent="." unique_id=39932675]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 300.0
+offset_right = 658.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.01519029, 0.0048448946, 0.0015921254, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iye8l")
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="." unique_id=1712177816]
+stream = ExtResource("3_iye8l")
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

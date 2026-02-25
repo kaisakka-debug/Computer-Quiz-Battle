@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dbptift147vg5"]
+
+[ext_resource type="Script" uid="uid://kokt44sps73o" path="res://scripts/how_to_play.gd" id="1_kolmb"]
+[ext_resource type="Texture2D" uid="uid://o13su01pf4w5" path="res://art/Prototype_Character/Arcade Gamer (4).png" id="1_y3e0y"]
+[ext_resource type="AudioStream" uid="uid://ccag84i6ublxc" path="res://Assets/background/soundreality-button-202966.mp3" id="3_471fu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kolmb"]
+texture = ExtResource("1_y3e0y")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja70v"]
+bg_color = Color(0.57443464, 0.59798044, 0.67563677, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="How to play" type="Control" unique_id=528643622]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kolmb")
+
+[node name="Panel" type="Panel" parent="." unique_id=1333607024]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kolmb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1595309800]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.5
+offset_top = 27.0
+offset_right = 86.5
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=2108745852]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.01519029, 0.0048448946, 0.0015921254, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ja70v")
+text = "Let PLAYGame"
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioClick" type="AudioStreamPlayer2D" parent="." unique_id=462410273]
+stream = ExtResource("3_471fu")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

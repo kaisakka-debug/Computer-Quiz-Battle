@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://b2c0gwyyfyb6d"]
+
+[ext_resource type="Texture2D" uid="uid://gelt2i1bosdu" path="res://art/Arcade Gamer.png" id="1_3er1b"]
+[ext_resource type="Script" uid="uid://c4xs5vj4pejfe" path="res://scripts/main_menu.gd" id="1_hxu56"]
+[ext_resource type="Texture2D" uid="uid://dh5lkah5sclso" path="res://art/Prototype_Character/Arcade Gamer (3).png" id="3_2fwvj"]
+[ext_resource type="AudioStream" uid="uid://dxpqv5mrg6ax" path="res://scene/Koji Kondo - Title Theme (From Ocarina of Time) (SPOTISAVER).mp3" id="4_0iwki"]
+[ext_resource type="AudioStream" uid="uid://ccag84i6ublxc" path="res://Assets/background/soundreality-button-202966.mp3" id="5_sepwh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hxu56"]
+texture = ExtResource("1_3er1b")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4svf"]
+bg_color = Color(0.57443464, 0.59798044, 0.67563677, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0iwki"]
+texture = ExtResource("3_2fwvj")
+
+[node name="Main_menu" type="Control" unique_id=841799406]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hxu56")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1028173066]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hxu56")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=507152267]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.5
+offset_top = -105.0
+offset_right = 70.5
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1815790270]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.01519029, 0.0048448946, 0.0015921254, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_m4svf")
+text = "Start Game"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=2010415785]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.01519029, 0.0048448946, 0.0015921254, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_m4svf")
+text = "Option"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=634102458]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.01519029, 0.0048448946, 0.0015921254, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_m4svf")
+text = "Exit
+"
+
+[node name="OptionPanel" type="Panel" parent="." unique_id=1136405762]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0iwki")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionPanel" unique_id=353545348]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.5
+offset_top = -40.0
+offset_right = 120.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="percentsound" type="Label" parent="OptionPanel/VBoxContainer" unique_id=65295350]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="OptionPanel/VBoxContainer" unique_id=270373846]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Button4" type="Button" parent="OptionPanel/VBoxContainer" unique_id=1682928345]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.01519029, 0.0048448946, 0.0015921254, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_m4svf")
+text = "BACK TO MAIN MENU"
+
+[node name="Bgm_menu" type="AudioStreamPlayer" parent="." unique_id=1715188571]
+stream = ExtResource("4_0iwki")
+volume_db = -20.0
+autoplay = true
+
+[node name="AudioClick" type="AudioStreamPlayer2D" parent="." unique_id=1536172265]
+stream = ExtResource("5_sepwh")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="value_changed" from="OptionPanel/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="OptionPanel/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]

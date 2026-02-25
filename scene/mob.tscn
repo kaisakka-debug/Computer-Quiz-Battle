@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://uonbrw6igkp7"]
+
+[ext_resource type="Texture2D" uid="uid://omqccfa3g00f" path="res://art/tilset/Dungeon_Character.png" id="1_8jgfq"]
+[ext_resource type="Script" uid="uid://deq2nrld3064l" path="res://scripts/mob.gd" id="1_rtm52"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtm52"]
+atlas = ExtResource("1_8jgfq")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a0b6"]
+atlas = ExtResource("1_8jgfq")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wts8j"]
+atlas = ExtResource("1_8jgfq")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25hoh"]
+atlas = ExtResource("1_8jgfq")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wts8j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtm52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a0b6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wts8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25hoh")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtm52"]
+size = Vector2(400, 248)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wts8j"]
+size = Vector2(28, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a0b6"]
+size = Vector2(9, 6)
+
+[node name="mob" type="CharacterBody2D" unique_id=50637619]
+script = ExtResource("1_rtm52")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=497627891]
+position = Vector2(1, 0.25)
+scale = Vector2(0.87499964, 0.65624994)
+sprite_frames = SubResource("SpriteFrames_wts8j")
+animation = &"walk"
+frame_progress = 0.5557294
+
+[node name="DetectArea" type="Area2D" parent="." unique_id=1937800981]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" unique_id=312570711]
+position = Vector2(-4, -1)
+shape = SubResource("RectangleShape2D_rtm52")
+
+[node name="BattleArea" type="Area2D" parent="." unique_id=1858836459]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleArea" unique_id=1148017317]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_wts8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=176655853]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_0a0b6")

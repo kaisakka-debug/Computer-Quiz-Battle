@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://b86wowfwm5bcx"]
+
+[ext_resource type="Script" uid="uid://bpun17mrsli2v" path="res://scripts/battle_ui.gd" id="1_oqol1"]
+[ext_resource type="Texture2D" uid="uid://bdny0na3o3lv4" path="res://Arcade Gamer (5).png" id="2_oqol1"]
+[ext_resource type="AudioStream" uid="uid://ccag84i6ublxc" path="res://Assets/background/soundreality-button-202966.mp3" id="3_74yhb"]
+[ext_resource type="AudioStream" uid="uid://8uffkgy8307i" path="res://Assets/background/mixkit-correct-answer-notification-947.wav" id="4_uvcm0"]
+[ext_resource type="AudioStream" uid="uid://bmf5btl5owfxq" path="res://Assets/background/mixkit-wrong-answer-bass-buzzer-948.wav" id="5_0w5h0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4wufa"]
+texture = ExtResource("2_oqol1")
+
+[sub_resource type="Theme" id="Theme_rfcyq"]
+
+[node name="Battle Ui" type="Control" unique_id=1031921103]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oqol1")
+
+[node name="main" type="VBoxContainer" parent="." unique_id=1692234183]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSection" type="VBoxContainer" parent="main" unique_id=895397365]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BossHPBar" type="ProgressBar" parent="main/TopSection" unique_id=648574870]
+modulate = Color(0.83295393, 3.0563026e-06, 1.2513996e-06, 1)
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+show_percentage = false
+
+[node name="BattleScene" type="Panel" parent="main/TopSection" unique_id=1813128227]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_4wufa")
+
+[node name="PlayerHPBar" type="ProgressBar" parent="main/TopSection" unique_id=577294366]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+show_percentage = false
+
+[node name="ScoreLabel" type="Label" parent="main/TopSection" unique_id=1637632824]
+layout_mode = 2
+
+[node name="ComboLabel" type="Label" parent="main/TopSection" unique_id=427393989]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="main/TopSection" unique_id=1827157989]
+layout_mode = 2
+
+[node name="QuestionSection" type="VBoxContainer" parent="main" unique_id=1618419502]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+
+[node name="QuestionLabel" type="Label" parent="main/QuestionSection" unique_id=1030565896]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+text = "question"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnswerSection" type="GridContainer" parent="main" unique_id=1769942035]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+columns = 2
+
+[node name="Button" type="Button" parent="main/AnswerSection" unique_id=870057190]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_rfcyq")
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "A"
+
+[node name="Button2" type="Button" parent="main/AnswerSection" unique_id=1028520512]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "B"
+
+[node name="Button3" type="Button" parent="main/AnswerSection" unique_id=982404709]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "C"
+
+[node name="Button4" type="Button" parent="main/AnswerSection" unique_id=1710741163]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "D"
+
+[node name="AudioClick" type="AudioStreamPlayer2D" parent="." unique_id=46226703]
+stream = ExtResource("3_74yhb")
+volume_db = -33.0
+
+[node name="AudioCorrect" type="AudioStreamPlayer2D" parent="." unique_id=2418761]
+stream = ExtResource("4_uvcm0")
+volume_db = -33.0
+
+[node name="AudioWrong" type="AudioStreamPlayer2D" parent="." unique_id=1962076864]
+stream = ExtResource("5_0w5h0")
+volume_db = -33.0

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bxkubpb0mwjdh"]
+
+[ext_resource type="Texture2D" uid="uid://gu8tnxoljwgd" path="res://Assets/background/levelpass.png" id="1_ge166"]
+[ext_resource type="Script" uid="uid://c33ys7k3bu5hk" path="res://scripts/level_complete.gd" id="1_k1sng"]
+[ext_resource type="AudioStream" uid="uid://bo7l500gvwjrb" path="res://Assets/background/mixkit-game-level-completed-2059.wav" id="3_p7tt7"]
+[ext_resource type="AudioStream" uid="uid://ccag84i6ublxc" path="res://Assets/background/soundreality-button-202966.mp3" id="4_3dfcn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ge166"]
+bg_color = Color(0.57443464, 0.59798044, 0.67563677, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="level_complete" type="Control" unique_id=1541260956]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_k1sng")
+
+[node name="clear_sound" type="AudioStreamPlayer2D" parent="." unique_id=1635403015]
+stream = ExtResource("3_p7tt7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=715822778]
+position = Vector2(577.49994, 321.25)
+scale = Vector2(1.1107899, 1.5527577)
+texture = ExtResource("1_ge166")
+
+[node name="NextLevel" type="Button" parent="." unique_id=1771823569]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 325.0
+offset_right = 644.0
+offset_bottom = 385.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.01519029, 0.0048448946, 0.0015921254, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ge166")
+text = "NEXT LEVEL"
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="." unique_id=161589610]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 180.0
+offset_right = 712.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 30
+
+[node name="AudioClick" type="AudioStreamPlayer2D" parent="." unique_id=812298434]
+stream = ExtResource("4_3dfcn")
+
+[connection signal="pressed" from="NextLevel" to="." method="_on_next_level_pressed"]
