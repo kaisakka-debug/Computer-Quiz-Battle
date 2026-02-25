@@ -92,6 +92,9 @@
 ---
 การติดตั้ง Exe
 ดาวน์โหลด 
+```bash
+https://drive.google.com/file/d/1ROW4ZItTMrW2nAMt8L2aQo6d8LK9F1r9/view?usp=sharing
+  ```
 ## 👨‍💻 ผู้จัดทำ (Credits)
 
 **[นายไกรศักดิ์ กาบกลอน ]** - Developer & Game Designer
