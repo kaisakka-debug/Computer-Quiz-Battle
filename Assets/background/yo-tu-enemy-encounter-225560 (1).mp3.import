@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwqisx5uwh51m"
+path="res://.godot/imported/yo-tu-enemy-encounter-225560 (1).mp3-9b42dd77f7629a1a93a8f2c7b317b95e.mp3str"
+
+[deps]
+
+source_file="res://Assets/background/yo-tu-enemy-encounter-225560 (1).mp3"
+dest_files=["res://.godot/imported/yo-tu-enemy-encounter-225560 (1).mp3-9b42dd77f7629a1a93a8f2c7b317b95e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
